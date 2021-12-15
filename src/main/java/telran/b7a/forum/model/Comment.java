@@ -16,9 +16,11 @@ import telran.b7a.forum.model.Comment;
 @EqualsAndHashCode(of = { "user", "dateCreated" })
 @ToString
 public class Comment {
+	@Setter
 	String user;
 	@Setter
 	String message;
+	@Setter
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	LocalDateTime dateCreated;
 	int likes;

@@ -23,19 +23,21 @@ public class Post {
 	String title;
 	@Setter 
 	String content;
+	@Setter
 	String author;
+	@Setter
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	LocalDateTime dateCreated;
 	Set<String> tags;
 	int likes;
-	Set<Comment> comments;
+	Set<Comment> comments = new HashSet<>();
 	public Post(String title, String content, String author, Set<String> tags) {
 		this.title = title;
 		this.content = content;
 		this.author = author;
 		this.tags = tags;
 		dateCreated = LocalDateTime.now();
-		comments = new HashSet<>();
+		
 	}
 	
 	public Post(String title, String content, String author) {

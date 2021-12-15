@@ -1,5 +1,8 @@
 package telran.b7a.forum.service;
 
+import java.util.List;
+
+import telran.b7a.forum.dto.DateDto;
 import telran.b7a.forum.dto.NewCommentDto;
 import telran.b7a.forum.dto.NewPostDto;
 import telran.b7a.forum.dto.PostDto;
@@ -20,4 +23,8 @@ public interface ForumService {
 	 
 	 Iterable<PostDto> findPostByAutor(String author);
 
+	 List<PostDto> findPostsByTags(List<String> tags);
+
+	 List<PostDto> findPostsByPeriod(DateDto date);
+	 
 }
