@@ -23,8 +23,8 @@ public interface ForumService {
 	 
 	 Iterable<PostDto> findPostByAutor(String author);
 
-	 List<PostDto> findPostsByTags(List<String> tags);
+	 Iterable<PostDto> findPostsByTags(List<String> tags);
 
-	 List<PostDto> findPostsByPeriod(DateDto date);
+	 Iterable<PostDto> findPostsByPeriod(DateDto date);
 	 
 }

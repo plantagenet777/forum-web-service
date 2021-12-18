@@ -5,14 +5,12 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor
 public class DateDto {
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "[yyyy-MM-dd][dd-MM-yyyy]")
 	LocalDate dateFrom;
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "[yyyy-MM-dd][dd-MM-yyyy]")
     LocalDate dateTo;
 
 }

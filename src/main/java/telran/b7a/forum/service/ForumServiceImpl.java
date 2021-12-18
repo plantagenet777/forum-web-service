@@ -97,14 +97,14 @@ public class ForumServiceImpl implements ForumService {
 	}
 
 	@Override
-	public List<PostDto> findPostsByTags(List<String> tags) {
+	public Iterable<PostDto> findPostsByTags(List<String> tags) {
 		return postRepository.findPostsByTags(tags)
 				.map(p -> modelMapper.map(p, PostDto.class))
 				.collect(Collectors.toList());
 	}
 
 	@Override
-	public List<PostDto> findPostsByPeriod(DateDto date) {
+	public Iterable<PostDto> findPostsByPeriod(DateDto date) {
 		return postRepository.findByDateCreatedBetween(convertDateTimeFrom(date), convertDateTimeTo(date))
 				.map(p -> modelMapper.map(p, PostDto.class))
 				.collect(Collectors.toList());
@@ -115,7 +115,7 @@ public class ForumServiceImpl implements ForumService {
 	}
 
 	private LocalDateTime convertDateTimeTo(DateDto date) {
-		return date.getDateTo().atStartOfDay();
+		return date.getDateTo().atStartOfDay().plusDays(1);
 	}
 
 }

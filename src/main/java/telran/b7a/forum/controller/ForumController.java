@@ -1,6 +1,5 @@
 package telran.b7a.forum.controller;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -69,12 +68,12 @@ public class ForumController {
 	}
 
 	@PostMapping("/posts/tags")
-	public List<PostDto> getPostByTags(@RequestBody List<String> tags) {
+	public Iterable<PostDto> getPostByTags(@RequestBody List<String> tags) {
 		return service.findPostsByTags(tags);
 	}
 
 	@PostMapping("/posts/period")
-	public List<PostDto> getPostsByPeriod(@RequestBody DateDto date) {
+	public Iterable<PostDto> getPostsByPeriod(@RequestBody DateDto date) {
 		return service.findPostsByPeriod(date);
 	}
 
