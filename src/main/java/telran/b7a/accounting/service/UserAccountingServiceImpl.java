@@ -53,10 +53,10 @@ public class UserAccountingServiceImpl implements UserAccountService {
 	@Override
 	public UserAccountResponseDto editUser(String login, UserUpdateDto userUpdateDto) {
 		UserAccount userAccount = repository.findById(login).orElseThrow(() -> new UserNotFoundException());
-		if (!userUpdateDto.getFirstName().isBlank()) {
+		if (!userUpdateDto.getFirstName().isEmpty()) {
 			userAccount.setFirstName(userUpdateDto.getFirstName());
 		}
-		if (!userUpdateDto.getLastName().isBlank()) {
+		if (!userUpdateDto.getLastName().isEmpty()) {
 			userAccount.setLastName(userUpdateDto.getLastName());
 		}
 		repository.save(userAccount);
@@ -66,7 +66,7 @@ public class UserAccountingServiceImpl implements UserAccountService {
 	@Override
 	public RolesResponseDto addRoleList(String login, String role) {
 		UserAccount userAccount = repository.findById(login).orElseThrow(() -> new UserNotFoundException());
-		if (!role.isBlank()) {
+		if (!role.isEmpty()) {
 			userAccount.addRole(role.toUpperCase());
 		}
 		repository.save(userAccount);
