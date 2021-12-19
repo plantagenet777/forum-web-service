@@ -53,10 +53,10 @@ public class UserAccountingServiceImpl implements UserAccountService {
 	@Override
 	public UserAccountResponseDto editUser(String login, UserUpdateDto userUpdateDto) {
 		UserAccount userAccount = repository.findById(login).orElseThrow(() -> new UserNotFoundException());
-		if (!userUpdateDto.getFirstName().isEmpty()) {
+		if (userUpdateDto.getFirstName() != null) {
 			userAccount.setFirstName(userUpdateDto.getFirstName());
 		}
-		if (!userUpdateDto.getLastName().isEmpty()) {
+		if (userUpdateDto.getLastName() != null) {
 			userAccount.setLastName(userUpdateDto.getLastName());
 		}
 		repository.save(userAccount);
