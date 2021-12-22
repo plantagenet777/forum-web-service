@@ -9,18 +9,34 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Singular;
+import lombok.ToString;
 
 @Getter
 @Setter
 @EqualsAndHashCode(of = { "login" })
 @Document(collection = "users")
+@ToString
 public class UserAccount {
 	@Id
 	String login;
 	String password;
 	String firstName;
 	String lastName;
-	Set<String> roles = new HashSet<>();
+	@Singular
+	Set<String> roles;
+	
+	public UserAccount(String login, String password, String firstName, String lastName) {
+		this.login = login;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.roles = new HashSet<String>();
+	}
+	
+	public UserAccount() {
+		roles = new HashSet<String>();
+	}
 
 	public boolean addRole(String role) {
 		return roles.add(role);

@@ -20,6 +20,6 @@ public interface UserAccountService {
 	  
 	RolesResponseDto deleteRoleList(String login, String role);
 	
-	void changePassword(UserLoginDto password);
+	boolean changePassword(UserLoginDto password);
 
 }
