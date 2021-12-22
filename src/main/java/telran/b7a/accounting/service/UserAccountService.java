@@ -1,5 +1,7 @@
 package telran.b7a.accounting.service;
 
+import java.security.Principal;
+
 import telran.b7a.accounting.dto.RolesResponseDto;
 import telran.b7a.accounting.dto.UserAccountResponseDto;
 import telran.b7a.accounting.dto.UserLoginDto;
@@ -20,6 +22,6 @@ public interface UserAccountService {
 	  
 	RolesResponseDto deleteRoleList(String login, String role);
 	
-	boolean changePassword(UserLoginDto password);
+	boolean changePassword(Principal principal);
 
 }

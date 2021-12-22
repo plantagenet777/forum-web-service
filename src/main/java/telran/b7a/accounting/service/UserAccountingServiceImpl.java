@@ -1,5 +1,7 @@
 package telran.b7a.accounting.service;
 
+import java.security.Principal;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,9 +91,9 @@ public class UserAccountingServiceImpl implements UserAccountService {
 	}
 
 	@Override
-	public boolean changePassword(UserLoginDto user) {
-		UserAccount userAccount = repository.findById(user.getLogin()).orElseThrow(() -> new UserNotFoundException());
-		userAccount.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+	public boolean changePassword(Principal principal) {
+		UserAccount userAccount = repository.findById(principal.getName()).orElseThrow(() -> new UserNotFoundException());
+		userAccount.setPassword(BCrypt.hashpw(principal.getName(), BCrypt.gensalt()));//!!!!!!!!!!!!!
 		repository.save(userAccount);
 		return true;
 	}

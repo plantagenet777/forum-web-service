@@ -1,5 +1,6 @@
 package telran.b7a.accounting.controller;
 
+import java.security.Principal;
 import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,9 +66,9 @@ public class UserAccountController {
 		return accountService.deleteRoleList(login, role);
 	}
 
-	@PutMapping("/user/password")
-	public void changePassword(@RequestBody UserLoginDto user) {
-		accountService.changePassword(user);
+	@PutMapping("/password")
+	public void changePassword(Principal principal) {
+		accountService.changePassword(principal);
 	}
 
 

@@ -26,8 +26,9 @@ public class UserAccount {
 	@Singular
 	Set<String> roles;
 	
-	public UserAccount(String login, String password, String firstName, String lastName) {
-		this.login = login;
+	
+	public UserAccount(String login1, String password, String firstName, String lastName) {
+		this.login = login1;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;

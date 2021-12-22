@@ -19,7 +19,7 @@ import telran.b7a.security.SecurityContext;
 import telran.b7a.security.UserProfile;
 
 @Service
-@Order(20)
+@Order(15)
 public class OwnerLoginFilter implements Filter {
 
 	SecurityContext securityContext;

@@ -21,7 +21,7 @@ import telran.b7a.security.SecurityContext;
 import telran.b7a.security.UserProfile;
 
 @Service
-@Order(30)
+@Order(35)
 public class ForumDeletePostFilter implements Filter {
 	PostMongoRepository repository;
 	SecurityContext securityContext;
